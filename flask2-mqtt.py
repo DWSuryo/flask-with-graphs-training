@@ -1,8 +1,3 @@
-# Created by Rui Santos
-# Complete project details: https://randomnerdtutorials.com
-#
-# SQLite version 3.8.6 2014-08-15 11:46:33
-
 import paho.mqtt.client as mqtt
 from flask import Flask, render_template, request
 from flask_socketio import SocketIO, emit
@@ -67,20 +62,14 @@ def on_message(client, userdata, message):
                print('header written, row count:',rowcount)
             writer.writerow(row)
             print("row written, row count",rowcount)
-         
-'''
-data = [datetime.date(), datetime.time(), on_message.temperature1, on_message.humidity1, on_message.kwh1]
-cur.execute('INSERT TO esp1 (tgl,time,temp1,hum1,kwh1')
-'''
 
 
 # initialize mqtt broker
 mqttc=mqtt.Client(client_id="capstone")
-#broker = 'localhost'
-broker = 'mqtt.lunar-smart.com'
-port = 8883
-username = 'lunar'
-password = 'smartsystem'
+broker = 'localhost'
+port = 1883
+username = ''
+password = ''
 print("mqtt broker initialized")
 
 # launch mqtt
